@@ -227,6 +227,32 @@ a:hover {
   margin-right: 1rem;
   margin-bottom: 0.5rem;
 }
+.hero {
+  background: #222; /* fallback if image missing */
+  color: #fff;
+  position: relative;
+  min-height: 500px; /* ensure hero section is tall enough */
+}
+
+.hero .hero-bg img {
+  opacity: 0.3; /* darken image for contrast */
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-content h1, .hero-content p {
+  color: #fff !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,.25);
+}
 
 /* Why Observability */
 .why h2 {
