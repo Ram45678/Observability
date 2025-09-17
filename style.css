@@ -1,0 +1,1040 @@
+/*
+  WeAre Observability Website Styles
+  
+  This stylesheet defines the look and feel of the WeAre observability website.
+  It follows the colour palette provided by the user: deep navy (#0D1C4D), gold
+  accents (#F4B765 and #55390C), light backgrounds (#EBFAFE and #FCFCFC), and
+  complementary blues and purples. Layouts are responsive using CSS grid and
+  flexbox. Icons come from Font Awesome. Cards, CTA sections, and forms are
+  styled to create a modern, professional and trustworthy appearance.
+*/
+
+:root {
+  --primary: #0D1C4D;          /* deep navy for backgrounds and headings */
+  --accent: #F4B765;           /* gold for highlights and buttons */
+  --accent-dark: #55390C;      /* darker gold/brown for subtle accents */
+  --light: #EBFAFE;            /* very light blue for section backgrounds */
+  --background: #FCFCFC;       /* off‑white for cards and body background */
+  --text: #080808;             /* near black for text */
+}
+
+/* Base Reset and Defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--background);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* Containers */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+.btn-secondary {
+  background: var(--accent);
+  color: var(--primary);
+  border: none;
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-outline {
+  /* Outline buttons use the accent colour so they remain visible on dark backgrounds */
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+.btn-link {
+  color: var(--primary);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-link i {
+  margin-left: 0.25rem;
+  transition: transform 0.3s;
+}
+
+.btn-link:hover i {
+  transform: translateX(4px);
+}
+
+/* Sections */
+.section {
+  padding: 80px 0;
+}
+
+.section-light {
+  background: var(--light);
+}
+
+/* Top Navigation */
+.top-nav {
+  background: var(--primary);
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.menu a {
+  margin-left: 1.5rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.actions a {
+  margin-left: 1rem;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  color: #fff;
+  height: 90vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.4);
+}
+
+.hero-content {
+  max-width: 800px;
+  padding-top: 100px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-content .highlight {
+  color: var(--accent);
+}
+
+.hero-content p {
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.hero-features {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.feature i {
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+
+.hero-buttons a {
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Why Observability */
+.why h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.why .subtitle {
+  text-align: center;
+  color: #555;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.card p {
+  color: #555;
+}
+
+/* CTA Sections */
+.cta {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta.journey {
+  background: var(--light);
+}
+
+.cta.operations {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 8px;
+}
+
+.cta.operations .btn-primary {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+.cta .small-heading {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.cta h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.cta.operations h2 {
+  color: #fff;
+}
+
+.cta p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.cta.operations p {
+  color: #dfe7ee;
+}
+
+/* Solutions */
+.solutions h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.solutions .subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.solution-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.solution-icon {
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.solution-card h3 {
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+}
+
+.solution-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.solution-card li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+  color: #555;
+}
+
+.solution-card li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Results / Metrics */
+.results h2 {
+  text-align: center;
+  color: var(--primary);
+}
+
+.results .subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.metric-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.metric-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.metric-card h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--primary);
+}
+
+.metric-card p {
+  color: #555;
+}
+
+.methodology {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--primary);
+}
+
+.methodology a {
+  text-decoration: underline;
+  color: var(--accent);
+}
+
+/* Case Studies */
+.case-studies h2 {
+  text-align: center;
+  color: var(--primary);
+}
+
+.case-studies .subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.case-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.case-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.case-card h3 {
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.badge {
+  background: var(--light);
+  color: var(--primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.case-card h4 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.case-card p {
+  color: #555;
+  margin-top: 0.25rem;
+}
+
+.result-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0;
+}
+
+.result-list li {
+  margin-bottom: 0.25rem;
+  color: #555;
+}
+
+.portfolio-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.portfolio-stats .stat h3 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+  color: var(--primary);
+}
+
+.portfolio-stats .stat p {
+  color: #555;
+}
+
+/* Success Stories */
+.success {
+  background: var(--light);
+}
+
+.success-top {
+  background: var(--primary);
+  color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.success-image {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.success-image img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.success-image .caption {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-card .stars {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.testimonial-card blockquote {
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  color: #555;
+}
+
+.testimonial-card cite {
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.stats-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stats-list li {
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+/* Additional Expertise */
+.expertise h2 {
+  text-align: center;
+  color: var(--primary);
+}
+
+.expertise .subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.expertise-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.expertise-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.expertise-card i {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.expertise-card h3 {
+  margin: 0;
+  color: var(--primary);
+}
+
+.expertise-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.expertise-card li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.expertise-card li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.company-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.company-stats .stat h3 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.company-stats .stat p {
+  color: #555;
+}
+
+.mission {
+  margin-top: 2rem;
+  color: #555;
+  text-align: center;
+}
+
+.mission strong {
+  color: var(--primary);
+}
+
+.mission-btn {
+  display: block;
+  width: max-content;
+  margin: 1.5rem auto 0;
+}
+
+/* Assessment & Contact */
+.assessment h2 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.assessment p {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.assessment-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.assessment-info {
+  background: var(--light);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+/* Ensure there is a small space between the label text and link in the contact list */
+.contact-list span {
+  margin-right: 0.5rem;
+}
+
+.contact-list i {
+  margin-right: 0.5rem;
+  color: var(--accent);
+}
+
+.expect h4 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.expect ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #555;
+}
+
+.expect li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.expect li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.assessment-form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.assessment-form h3 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  color: var(--text);
+}
+
+.form-group textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+.form-btn {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.achieve {
+  background: var(--primary);
+  color: #fff;
+  padding: 3rem 1rem;
+  margin-top: 3rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Ensure heading in the achievement CTA remains visible */
+.achieve h2 {
+  color: #fff;
+}
+
+.achieve h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.achieve p {
+  margin-bottom: 1.5rem;
+  color: #dfe7ee;
+}
+
+.achieve-buttons a {
+  margin: 0 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cta-details {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cta-details span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #dfe7ee;
+}
+
+.cta-details i {
+  color: var(--accent);
+}
+
+/* Footer */
+.footer {
+  background: var(--primary);
+  color: #fff;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-logo i {
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+
+.footer-col h4 {
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.footer-col a:hover {
+  color: var(--accent);
+}
+
+.subscribe-form {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.subscribe-form input {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-family: inherit;
+}
+
+.subscribe-form button {
+  padding: 0.5rem 0.75rem;
+  background: var(--accent);
+  border: none;
+  border-radius: 0 4px 4px 0;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.social-links a {
+  color: #fff;
+  margin-left: 1rem;
+  font-size: 1.25rem;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+}
+
+.footer-policies a {
+  margin-left: 1rem;
+  color: #fff;
+}
+
+.footer-policies a:hover {
+  color: var(--accent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+  .hero-content {
+    padding-top: 80px;
+  }
+  .hero-features {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero-buttons a {
+    margin-bottom: 0.5rem;
+  }
+  .portfolio-stats {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cta-details {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .solutions-grid,
+  .metrics-grid,
+  .case-grid,
+  .testimonial-grid,
+  .expertise-grid,
+  .assessment-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
